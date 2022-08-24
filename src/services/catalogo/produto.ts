@@ -1,5 +1,5 @@
-import { IAggregateRoot } from '../core/aggregate-root.interface';
-import { Entity } from '../core/entity';
+import { IAggregateRoot } from '../core/domainObjects/aggregate-root.interface';
+import { Entity } from '../core/domainObjects/entity';
 import { Categoria } from './categoria';
 import { Dimensoes } from './dimensoes';
 
@@ -31,6 +31,7 @@ export class Produto extends Entity implements IAggregateRoot {
     this.dataCadastro = dataCadastro;
     this.dimensoes = dimensoes;
 
+    //TODO: adicionar forma de validação
     this.validar();
   }
 

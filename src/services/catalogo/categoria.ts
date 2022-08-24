@@ -1,4 +1,4 @@
-import { Entity } from '../core/entity';
+import { Entity } from '../core/domainObjects/entity';
 
 export class Categoria extends Entity {
   nome: string;
