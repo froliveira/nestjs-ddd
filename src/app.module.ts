@@ -13,7 +13,7 @@ import { AppService } from './app.service';
       password: 'root',
       database: 'test',
       entities: [],
-      synchronize: true,
+      synchronize: true, //TODO: alterar para arquivo de ambiente
     }),
   ],
   controllers: [AppController],
