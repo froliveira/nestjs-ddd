@@ -1,5 +1,5 @@
-import { IAggregateRoot } from '../core/domainObjects/aggregate-root.interface';
-import { Entity } from '../core/domainObjects/entity';
+import { IAggregateRoot } from 'src/services/core/domainObjects/aggregate-root.interface';
+import { Entity } from 'src/services/core/domainObjects/entity';
 import { Categoria } from './categoria';
 import { Dimensoes } from './dimensoes';
 
