@@ -9,7 +9,7 @@ export class Produto extends Entity implements IAggregateRoot {
   descricao: string;
   ativo: boolean;
   valor: number;
-  dataCadastro: Date;
+  dataCadastro: string;
   quantidadeEstoque: number;
   dimensoes: Dimensoes;
   categoria: Categoria;
@@ -19,8 +19,9 @@ export class Produto extends Entity implements IAggregateRoot {
     descricao: string,
     ativo: boolean,
     valor: number,
-    dataCadastro: Date,
-    dimensoes: Dimensoes,
+    dataCadastro: string,
+    quantidadeEstoque: number,
+    //dimensoes: Dimensoes,
   ) {
     super();
 
@@ -29,7 +30,8 @@ export class Produto extends Entity implements IAggregateRoot {
     this.ativo = ativo;
     this.valor = valor;
     this.dataCadastro = dataCadastro;
-    this.dimensoes = dimensoes;
+    this.quantidadeEstoque = quantidadeEstoque;
+    //this.dimensoes = dimensoes;
 
     //TODO: adicionar forma de validação
     this.validar();

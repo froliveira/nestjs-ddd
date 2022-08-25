@@ -6,8 +6,8 @@ export interface IProdutoRepository extends IRepository<Produto> {
   getAll: () => Produto[];
   getById: (id: string) => Produto;
 
-  addProduto: (produto: Produto) => void;
-  updateProduto: (produto: Produto) => void;
+  create: (produto: Produto) => Promise<Produto>;
+  update: (produto: Produto) => Promise<Produto>;
 
   addCategoria: (categoria: Categoria) => void;
   updateCategoria: (categoria: Categoria) => void;
