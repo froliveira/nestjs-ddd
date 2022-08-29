@@ -3,9 +3,8 @@ import { Produto } from './produto';
 import { IProdutoRepository } from './produto-repository.interface';
 
 export class ProdutoService {
-  constructor(private produtoRepository: IProdutoRepository) {}
+  constructor(private readonly produtoRepository: IProdutoRepository) {}
 
-  //TODO: criar DTO
   create(createProdutoDto: CreateProdutoDto) {
     const produto = new Produto(
       createProdutoDto.nome,
