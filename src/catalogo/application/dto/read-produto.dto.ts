@@ -1,4 +1,5 @@
-export class CreateProdutoDto {
+export class ReadProdutoDto {
+  id: string;
   nome: string;
   descricao: string;
   ativo: boolean;

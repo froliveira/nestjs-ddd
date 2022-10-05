@@ -18,7 +18,7 @@ export class ProdutoMapper {
   valor: number;
 
   @Column()
-  dataCadastro: string;
+  dataCadastro: Date;
 
   @Column()
   quantidadeEstoque: number;

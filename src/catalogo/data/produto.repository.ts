@@ -1,10 +1,12 @@
+import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Categoria } from '../domain/categoria';
 import { Produto } from '../domain/produto';
-import { IProdutoRepository } from '../domain/produto-repository.interface';
+import { IProdutoRepository } from '../domain/produto.repository.interface';
 import { ProdutoMapper } from './produto.mapper';
 
+@Injectable()
 export class ProdutoRepository implements IProdutoRepository {
   constructor(
     @InjectRepository(ProdutoMapper)
@@ -13,16 +15,24 @@ export class ProdutoRepository implements IProdutoRepository {
 
   getAll: () => Produto[];
 
-  getById: (id: string) => Produto;
+  async getById(id: string) {
+    const produto = await this.repository.findOneBy({ id: id });
+
+    return <Produto>produto;
+  }
 
   async create(produto: Produto) {
     const model = this.repository.create(produto);
     const produtoMapper = await this.repository.save(model);
 
-    return produto;
+    return <Produto>{ id: produtoMapper.id, ...produto };
   }
 
-  update: (produto: Produto) => Promise<Produto>;
+  async update(produto: Produto) {
+    const produtoMapper = await this.repository.save(produto);
+
+    return <Produto>{ id: produtoMapper.id, ...produto };
+  }
 
   addCategoria: (categoria: Categoria) => void;
 

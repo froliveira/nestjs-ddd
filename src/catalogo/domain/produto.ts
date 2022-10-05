@@ -4,12 +4,13 @@ import { Categoria } from './categoria';
 import { Dimensoes } from './dimensoes';
 
 export class Produto extends Entity implements IAggregateRoot {
+  id: string;
   categoriaId: string;
   nome: string;
   descricao: string;
   ativo: boolean;
   valor: number;
-  dataCadastro: string;
+  dataCadastro: Date;
   quantidadeEstoque: number;
   dimensoes: Dimensoes;
   categoria: Categoria;
@@ -19,7 +20,7 @@ export class Produto extends Entity implements IAggregateRoot {
     descricao: string,
     ativo: boolean,
     valor: number,
-    dataCadastro: string,
+    dataCadastro: Date,
     quantidadeEstoque: number,
     //dimensoes: Dimensoes,
   ) {
